@@ -7,6 +7,7 @@ module.exports = {
   plugins: ['react-refresh'],
   rules: {
     '@typescript-eslint/no-unused-vars': 'warn',
+    '@typescript-eslint/ban-types': 'off',
     'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
   },
 };
