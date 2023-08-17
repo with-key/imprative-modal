@@ -1,13 +1,22 @@
+import { useEffect } from 'react';
 import { Modal } from './components/Modal';
 
 function App() {
-  return (
-    <>
-      <button name="trigger" onClick={() => Modal._ref?.toggle()}>
-        열기
-      </button>
-    </>
-  );
+  const promise = new Promise((res) => {
+    setTimeout(() => {
+      res(404);
+    }, 2000);
+  });
+
+  useEffect(() => {
+    promise.then((res) => {
+      if (res === 404) {
+        Modal._ref?.show();
+      }
+    });
+  }, []);
+
+  return <div> 2초뒤에 404 에러가 발생합니다.</div>;
 }
 
 export default App;
